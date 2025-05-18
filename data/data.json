@@ -1,1 +1,48 @@
-[{"listaUsuarios": [{"nombre": "William", "contrasena": "1234", "gastos": [{"monto": 12, "categoria": "comida", "descripcion": "que mal"}, {"monto": 3, "categoria": "comida", "descripcion": "", "fecha": "2025-05-18"}, {"monto": 1, "categoria": "4", "descripcion": "feos", "fecha": "2025-05-18"}, {"monto": 43434, "categoria": "Otros", "descripcion": "de", "fecha": "2025-05-18"}]}]}]
+[
+  {
+    "listaUsuarios": [
+      {
+        "nombre": "William",
+        "contrasena": "1234",
+        "gastos": [
+          {
+            "monto": 15,
+            "categoria": "Comida",
+            "descripcion": "Almuerzo en restaurante",
+            "fecha": "2025-05-18"
+          },
+          {
+            "monto": 6,
+            "categoria": "Comida",
+            "descripcion": "Café y pan",
+            "fecha": "2025-05-19"
+          },
+          {
+            "monto": 10,
+            "categoria": "Transporte",
+            "descripcion": "Bus ida y vuelta",
+            "fecha": "2025-05-18"
+          },
+          {
+            "monto": 25,
+            "categoria": "Entretenimiento",
+            "descripcion": "Entrada al cine",
+            "fecha": "2025-05-20"
+          },
+          {
+            "monto": 5,
+            "categoria": "Otros",
+            "descripcion": "Donación",
+            "fecha": "2025-05-21"
+          },
+          {
+            "monto": 50,
+            "categoria": "Otros",
+            "descripcion": "Compra varios útiles",
+            "fecha": "2025-05-22"
+          }
+        ]
+      }
+    ]
+  }
+]

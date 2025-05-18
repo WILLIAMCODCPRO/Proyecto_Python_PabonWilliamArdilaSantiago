@@ -1,4 +1,4 @@
-from tabulate import tabulate
+
 from funciones.funciones import *
 from datetime import datetime
 
@@ -52,6 +52,15 @@ while(boolianito):
   print("3. Filtrar por rango de fechas")
   print("4. Regresar al menú principal")
   print("=============================================")
+  
+  opcionListarGastos = int(input("Que accion deseas realizar \n"))
+  if (opcionListarGastos == 1):
+      todosLosGastos(opcionListarGastos, usuarioActivo)
+  elif (opcionListarGastos == 2):
+        buscarCategoria = int((input("Por cua tipo de categoria deseas filtar (1. comida, 2. transporte, 3. entretenimiento, 4. otros):")))
+        filtarCategoria(usuarioActivo,buscarCategoria)
+  elif (opcionListarGastos == 3):
+        filtrarPorRangoFechas(usuarioActivo)
   
  if (opcion == 3):
      
