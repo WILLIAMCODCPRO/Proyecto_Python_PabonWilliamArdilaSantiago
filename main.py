@@ -1,4 +1,10 @@
 from tabulate import tabulate
+from funciones.funciones import *
+from datetime import datetime
+
+usuarioActivo = iniciarSesion()
+if not usuarioActivo:
+    exit()
 
 boolianito = True
 
@@ -15,7 +21,7 @@ while(boolianito):
  print("5. Salir")
  print("=============================================")
  
- opcion = int(input())
+ opcion = int(input("Que accion deseas realizar \n"))
 
  if (opcion == 1):
      
@@ -23,10 +29,16 @@ while(boolianito):
   print("            Registrar Nuevo Gasto            ")
   print("=============================================")
   print("Ingrese la información del gasto:\n")
-  print("- Monto del gasto:")
-  print("- Categoría (ej. comida, transporte, entretenimiento, otros):")
-  print("- Descripción (opcional):\n")
-  print("Ingrese 'S' para guardar o 'C' para cancelar.")
+  montoDelGasto = int(input("- Monto del gasto:"))
+  categoria = int(input("- Categoría (1. comida, 2. transporte, 3. entretenimiento, 4. otros):"))
+  descripcion = input("- ¿Deseas agregar una descripcion? (S/N):").lower()
+  if (descripcion == "s"):
+      descripcion = input("- Porfavor escribe tu descripcion:")
+  elif(descripcion == "n"):
+      descripcion = "Sin ninguna descripcion"
+  fechaRegistro = datetime.now().strftime("%Y-%m-%d")
+  guardar = input("Ingrese 'S' para guardar o 'C' para cancelar:").lower()
+  registarNuevoGasto(guardar, usuarioActivo, montoDelGasto, categoria, descripcion, fechaRegistro)
   print("=============================================")
   
  if (opcion == 2):
@@ -66,7 +78,7 @@ while(boolianito):
   print("=============================================")
   
  if opcion == 5:
-    cerrarPrograma = input("¿Desea salir del programa? (S/N): ").strip().lower()
+    cerrarPrograma = input("¿Desea salir del programa? (S/N): ").lower()
     if (cerrarPrograma == "s"):
         print("Gracias por usar mi programa, hasta luego.")
         boolianito = False
