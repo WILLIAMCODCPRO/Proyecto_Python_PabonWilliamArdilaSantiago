@@ -83,9 +83,10 @@ def filtarCategoria(usuarioActivo,buscarCategoria):
                     fecha = gasto["fecha"]
                     tablaCategoria.append([monto, categoria, descripcion, fecha])
                     
-        elif (buscarCategoria == 2):
-             buscarCategoria = "Transporte"
-             for gasto in usuario["gastos"]:
+         elif (buscarCategoria == 2):
+               
+               buscarCategoria = "Transporte"
+               for gasto in usuario["gastos"]:
                  if gasto["categoria"] == buscarCategoria:
                     monto = gasto["monto"]
                     categoria = gasto["categoria"]
@@ -93,9 +94,10 @@ def filtarCategoria(usuarioActivo,buscarCategoria):
                     fecha = gasto["fecha"]
                     tablaCategoria.append([monto, categoria, descripcion, fecha])
                     
-        elif (buscarCategoria == 3):
-             buscarCategoria = "Entretenimiento"
-             for gasto in usuario["gastos"]:
+         elif (buscarCategoria == 3):
+             
+               buscarCategoria = "Entretenimiento"
+               for gasto in usuario["gastos"]:
                  if gasto["categoria"] == buscarCategoria:
                     monto = gasto["monto"]
                     categoria = gasto["categoria"]
@@ -103,9 +105,10 @@ def filtarCategoria(usuarioActivo,buscarCategoria):
                     fecha = gasto["fecha"]
                     tablaCategoria.append([monto, categoria, descripcion, fecha])
                     
-        elif (buscarCategoria == 4):
-             buscarCategoria = "Otros"
-             for gasto in usuario["gastos"]:
+         elif (buscarCategoria == 4):
+             
+               buscarCategoria = "Otros"
+               for gasto in usuario["gastos"]:
                  if gasto["categoria"] == buscarCategoria:
                     monto = gasto["monto"]
                     categoria = gasto["categoria"]

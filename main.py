@@ -55,7 +55,7 @@ while(boolianito):
   
   opcionListarGastos = int(input("Que accion deseas realizar \n"))
   if (opcionListarGastos == 1):
-      todosLosGastos(opcionListarGastos, usuarioActivo)
+      todosLosGastos(usuarioActivo)
   elif (opcionListarGastos == 2):
         buscarCategoria = int((input("Por cua tipo de categoria deseas filtar (1. comida, 2. transporte, 3. entretenimiento, 4. otros):")))
         filtarCategoria(usuarioActivo,buscarCategoria)
