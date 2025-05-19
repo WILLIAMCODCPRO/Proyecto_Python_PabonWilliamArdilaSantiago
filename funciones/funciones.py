@@ -170,7 +170,33 @@ def calcularTotalDiario(usuarioActivo):
      else:
         totalCategoria[categoria] = monto
 
-    tabla_categoria = [[categoria, monto] for categoria, monto in totalCategoria.items()]
+    tablaCategoria = [[categoria, monto] for categoria, monto in totalCategoria.items()]
     print("\nGastos acumulados por categoría:")
-    print(tabulate(tabla_categoria, headers=["Categoría", "Total"], tablefmt="grid"))
+    print(tabulate(tablaCategoria, headers=["Categoría", "Total"], tablefmt="grid"))
     
+def calcularTotalSemanal(usuarioActivo):
+    from tabulate import tabulate
+    datos = abrirJSON()
+    tablaSemanal = {}
+
+    for usuario in datos[0]["listaUsuarios"]:
+        if usuario["nombre"] == usuarioActivo:
+            f = 2
+
+def calcularTotalMensual(usuarioActivo):
+    from tabulate import tabulate
+    datos = abrirJSON()
+    tablaMensual = {}
+
+    for usuario in datos[0]["listaUsuarios"]:
+        if usuario["nombre"] == usuarioActivo:
+            for gasto in usuario["gastos"]:
+                fecha = gasto["fecha"]
+                monto = gasto["monto"]
+                if fecha in tablaMensual:
+                    tablaMensual[fecha] += monto
+                else:
+                    tablaMensual[fecha] = monto
+
+    tabla = [[fecha, monto] for fecha, monto in tablaMensual.items()]
+    print(tabulate(tabla, headers=["Fecha", "Total Gastado"], tablefmt="grid"))

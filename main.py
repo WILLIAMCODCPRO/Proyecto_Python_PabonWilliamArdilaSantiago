@@ -77,6 +77,11 @@ while(boolianito):
   opcionCalcularTotalDeGastos = int(input("Que accion deseas realizar \n"))
   if (opcionCalcularTotalDeGastos == 1):
       calcularTotalDiario(usuarioActivo)
+  elif (opcionCalcularTotalDeGastos == 2):
+       calcularTotalSemanal(usuarioActivo)
+  elif (opcionCalcularTotalDeGastos == 3):
+       calcularTotalMensual(usuarioActivo)
+
   
  if (opcion == 4):
      
