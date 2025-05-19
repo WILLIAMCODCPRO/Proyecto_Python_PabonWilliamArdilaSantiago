@@ -74,6 +74,10 @@ while(boolianito):
   print("4. Regresar al menú principal")
   print("=============================================")
   
+  opcionCalcularTotalDeGastos = int(input("Que accion deseas realizar \n"))
+  if (opcionCalcularTotalDeGastos == 1):
+      calcularTotalDiario(usuarioActivo)
+  
  if (opcion == 4):
      
   print("=============================================")

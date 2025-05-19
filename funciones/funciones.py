@@ -49,7 +49,7 @@ def registarNuevoGasto(guardar, usuarioActivo, montoDelGasto, categoria, descrip
                 guardarJSON(datos)
                 print(" Gasto guardado correctamente.")
                 
-def todosLosGastos(opcionListarGastos, usuarioActivo):
+def todosLosGastos(usuarioActivo):
     from tabulate import tabulate
     datos = abrirJSON()
    
@@ -116,6 +116,7 @@ def filtarCategoria(usuarioActivo,buscarCategoria):
     print(tabulate(tablaCategoria, headers=["Monto", "Categoría", "Descripción", "Fecha"], tablefmt="grid"))
     
 def filtrarPorRangoFechas(usuarioActivo):
+    
     from datetime import datetime
     from tabulate import tabulate
     datos = abrirJSON()
@@ -139,4 +140,37 @@ def filtrarPorRangoFechas(usuarioActivo):
                     fecha = gasto["fecha"]
                     tablaFechas.append([monto, categoria, descripcion, fecha])                    
                 
-    print(tabulate(tablaFechas, headers=["Monto", "Categoría", "Descripción", "Fecha"], tablefmt="grid"))       
+    print(tabulate(tablaFechas, headers=["Monto", "Categoría", "Descripción", "Fecha"], tablefmt="grid"))   
+    
+def calcularTotalDiario(usuarioActivo):
+    from tabulate import tabulate
+    datos = abrirJSON()
+    tablaDiario = {}  
+    
+    for usuario in datos[0]["listaUsuarios"]:
+        if usuario["nombre"] == usuarioActivo:
+             for gasto in usuario["gastos"]:
+                fecha = gasto["fecha"]
+                monto = gasto["monto"]
+                if fecha in tablaDiario:
+                    tablaDiario[fecha] += monto
+                else:
+                    tablaDiario[fecha] = monto
+
+    
+    tabla = [[fecha, monto] for fecha, monto in tablaDiario.items()]
+    print(tabulate(tabla, headers=["Fecha", "Total Gastado"], tablefmt="grid"))
+    
+    totalCategoria = {}
+    for gasto in usuario["gastos"]:
+     categoria = gasto["categoria"]
+     monto = gasto["monto"]
+     if categoria in totalCategoria:
+        totalCategoria[categoria] += monto
+     else:
+        totalCategoria[categoria] = monto
+
+    tabla_categoria = [[categoria, monto] for categoria, monto in totalCategoria.items()]
+    print("\nGastos acumulados por categoría:")
+    print(tabulate(tabla_categoria, headers=["Categoría", "Total"], tablefmt="grid"))
+    
