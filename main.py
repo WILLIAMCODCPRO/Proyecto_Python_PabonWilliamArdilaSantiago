@@ -2,8 +2,22 @@
 from funciones.funciones import *
 from datetime import datetime
 
-usuarioActivo = iniciarSesion()
-if not usuarioActivo:
+continuar = True
+while(continuar):
+ print("Bienvenido a mi programa para calcular gastos\n")
+ print("1. Crear cuenta")
+ print("2. Iniciar sesion")
+ iniciarCrear = int(input())
+
+ if (iniciarCrear == 1):
+    crearCuenta()
+    continuar = True
+ 
+
+ if (iniciarCrear == 2):
+   continuar = False
+   usuarioActivo = iniciarSesion()
+   if not usuarioActivo:
     exit()
 
 boolianito = True
