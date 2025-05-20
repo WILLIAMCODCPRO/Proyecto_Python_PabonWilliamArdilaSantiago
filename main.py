@@ -95,6 +95,15 @@ while(boolianito):
   print("4. Regresar al menú principal")
   print("=============================================")
   
+  opcionGenerarReporteGastos = int(input("Que accion deseas realizar \n"))
+  
+  if (opcionGenerarReporteGastos == 1):
+      calcularTotalDiario(usuarioActivo)
+  elif (opcionGenerarReporteGastos== 2):
+       calcularTotalSemanal(usuarioActivo)
+  elif ( opcionGenerarReporteGastos == 3):
+       calcularTotalMensual(usuarioActivo)
+  
  if opcion == 5:
     cerrarPrograma = input("¿Desea salir del programa? (S/N): ").lower()
     if (cerrarPrograma == "s"):
