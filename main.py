@@ -1,7 +1,7 @@
 
 from funciones.funciones import *
 from datetime import datetime
-
+hola=39393
 continuar = True
 while(continuar):
  print("Bienvenido a mi programa para calcular gastos\n")
