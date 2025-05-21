@@ -1,7 +1,7 @@
 
 from funciones.funciones import *
 from datetime import datetime
-hola=39393
+
 continuar = True
 while(continuar):
  print("Bienvenido a mi programa para calcular gastos\n")
@@ -112,11 +112,11 @@ while(boolianito):
   opcionGenerarReporteGastos = int(input("Que accion deseas realizar \n"))
   
   if (opcionGenerarReporteGastos == 1):
-      calcularTotalDiario(usuarioActivo)
+      reporteDiario(usuarioActivo)
   elif (opcionGenerarReporteGastos== 2):
-       calcularTotalSemanal(usuarioActivo)
+       reporteSemanal(usuarioActivo)
   elif ( opcionGenerarReporteGastos == 3):
-       calcularTotalMensual(usuarioActivo)
+       reporteMensual(usuarioActivo)
   
  if opcion == 5:
     cerrarPrograma = input("¿Desea salir del programa? (S/N): ").lower()
