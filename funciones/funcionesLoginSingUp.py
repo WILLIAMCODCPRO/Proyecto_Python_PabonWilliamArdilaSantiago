@@ -8,11 +8,8 @@ def crearCuenta():
     contrasena = input("Crea tu contraseña: ")
     nuevoUsuario = {"nombre":nombreUsuario,
                     "contrasena": contrasena,
+                    "reportes" : [],
                     "gastos":[]
-                    
-                    
-                    
-                    
                     
                     }
     datos[0]["listaUsuarios"].append(nuevoUsuario)

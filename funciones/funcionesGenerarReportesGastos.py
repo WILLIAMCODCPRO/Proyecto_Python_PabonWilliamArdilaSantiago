@@ -12,7 +12,6 @@ def reporteDiario(usuarioActivo):
                 monto = gasto["monto"]
                 categoria = gasto["categoria"]
 
-               
                 if fecha in totalPorFecha:
                     totalPorFecha[fecha] += monto
                 else:
@@ -23,16 +22,30 @@ def reporteDiario(usuarioActivo):
                 else:
                     totalPorCategoria[categoria] = monto
 
-    print("REPORTE DIARIO DE GASTOS")
-    print("========================\n")
+            reporte = "REPORTE DIARIO DE GASTOS\n========================\n\n"
+            reporte += "Totales por Fecha:\n"
+            for fecha, monto in totalPorFecha.items():
+                reporte += f"- El día {fecha} se gastó un total de ${monto}\n"
 
-    print("Totales por Fecha:")
-    for fecha, monto in totalPorFecha.items():
-        print(f"- El día {fecha} se gastó un total de ${monto}")
+            reporte += "\nTotales por Categoría:\n"
+            for categoria, monto in totalPorCategoria.items():
+                reporte += f"- En la categoría '{categoria}' se gastó un total de ${monto}\n"
 
-    print("\nTotales por Categoría:")
-    for categoria, monto in totalPorCategoria.items():
-        print(f"- En la categoría '{categoria}' se gastó un total de ${monto}")
+            eleccion = input("¿Deseas mostrar el reporte en pantalla (1) o guardarlo en JSON (2)? ")
+            if eleccion == "1":
+                print(reporte)
+            elif eleccion == "2":
+                if "reportes" not in usuario:
+                    usuario["reportes"] = []
+                usuario["reportes"].append({
+                    "tipo": "Diario",
+                    "contenido": reporte
+                })
+                guardarJSON(datos)
+                print("Reporte diario guardado correctamente.")
+
+            
+
     
 def reporteSemanal(usuarioActivo):
     from datetime import datetime
@@ -45,12 +58,9 @@ def reporteSemanal(usuarioActivo):
             for gasto in usuario["gastos"]:
                 fechaTexto = gasto["fecha"]
                 fecha = datetime.strptime(fechaTexto, "%Y-%m-%d")
-                
-               
                 primerDiaMes = fecha.replace(day=1)
                 diaSemanaPrimero = primerDiaMes.weekday()
                 semanaDelMes = ((fecha.day + diaSemanaPrimero - 1) // 7) + 1
-                
                 claveSemana = f"{fecha.strftime('%B %Y')} - Semana {semanaDelMes}"
 
                 monto = gasto["monto"]
@@ -66,16 +76,30 @@ def reporteSemanal(usuarioActivo):
                 else:
                     totalPorCategoria[categoria] = monto
 
-    print("REPORTE SEMANAL DE GASTOS")
-    print("==========================\n")
+            reporte = "REPORTE SEMANAL DE GASTOS\n==========================\n\n"
+            reporte += "Totales por Semana del Mes:\n"
+            for semana, monto in totalPorSemana.items():
+                reporte += f"- En {semana} se gastó un total de ${monto}\n"
 
-    print("Totales por Semana del Mes:")
-    for semana, monto in sorted(totalPorSemana.items()):
-        print(f"- En {semana} se gastó un total de ${monto}")
+            reporte += "\nTotales por Categoría:\n"
+            for categoria, monto in totalPorCategoria.items():
+                reporte += f"- En la categoría '{categoria}' se gastó un total de ${monto}\n"
 
-    print("\nTotales por Categoría:")
-    for categoria, monto in totalPorCategoria.items():
-        print(f"- En la categoría '{categoria}' se gastó un total de ${monto}")
+            eleccion = input("¿Deseas mostrar el reporte en pantalla (1) o guardarlo en JSON (2)? ")
+            if eleccion == "1":
+                print(reporte)
+            elif eleccion == "2":
+                if "reportes" not in usuario:
+                    usuario["reportes"] = []
+                usuario["reportes"].append({
+                    "tipo": "Semanal",
+                    "contenido": reporte
+                })
+                guardarJSON(datos)
+                print("Reporte semanal guardado correctamente.")
+
+            
+
 
 def reporteMensual(usuarioActivo):
     from datetime import datetime
@@ -88,8 +112,8 @@ def reporteMensual(usuarioActivo):
             for gasto in usuario["gastos"]:
                 fechaTexto = gasto["fecha"]
                 fecha = datetime.strptime(fechaTexto, "%Y-%m-%d")
-                
-                claveMes = fecha.strftime("%B %Y") 
+                claveMes = fecha.strftime("%B %Y")
+
                 monto = gasto["monto"]
                 categoria = gasto["categoria"]
 
@@ -103,13 +127,26 @@ def reporteMensual(usuarioActivo):
                 else:
                     totalPorCategoria[categoria] = monto
 
-    print("REPORTE MENSUAL DE GASTOS")
-    print("==========================\n")
+            reporte = "REPORTE MENSUAL DE GASTOS\n==========================\n\n"
+            reporte += "Totales por Mes:\n"
+            for mes, monto in totalPorMes.items():
+                reporte += f"- En {mes} se gastó un total de ${monto}\n"
 
-    print("Totales por Mes:")
-    for mes, monto in sorted(totalPorMes.items()):
-        print(f"- En {mes} se gastó un total de ${monto}")
+            reporte += "\nTotales por Categoría:\n"
+            for categoria, monto in totalPorCategoria.items():
+                reporte += f"- En la categoría '{categoria}' se gastó un total de ${monto}\n"
 
-    print("\nTotales por Categoría:")
-    for categoria, monto in totalPorCategoria.items():
-        print(f"- En la categoría '{categoria}' se gastó un total de ${monto}")
+            eleccion = input("¿Deseas mostrar el reporte en pantalla (1) o guardarlo en JSON (2)? ")
+            if eleccion == "1":
+                print(reporte)
+            elif eleccion == "2":
+                if "reportes" not in usuario:
+                    usuario["reportes"] = []
+                usuario["reportes"].append({
+                    "tipo": "Mensual",
+                    "contenido": reporte
+                })
+                guardarJSON(datos)
+                print("Reporte mensual guardado correctamente.")
+
+            
