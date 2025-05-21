@@ -1,5 +1,10 @@
 
-from funciones.funciones import *
+from funciones.funcionesJson import *
+from funciones.funcionesLoginSingUp import *
+from funciones.funcionesRegistarNuevosGastos import *
+from funciones.funcionesListarGastos import *
+from funciones.funcionesCalcularTotalGastos import *
+from funciones.funcionesGenerarReportesGastos import *
 from datetime import datetime
 
 continuar = True
