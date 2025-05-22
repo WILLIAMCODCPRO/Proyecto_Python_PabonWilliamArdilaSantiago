@@ -138,4 +138,4 @@ Que acción deseas realizar
 ```
 
 ## ▶️ Link del video del proyecto
-https://youtu.be/g04lMhPmQxA
+https://youtu.be/qKoRvYqsBZk
