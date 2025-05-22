@@ -1,6 +1,18 @@
 #  Proyecto de Simulación Gestión de Gastos Personales
 
-Este proyecto es una aplicación en Python que permite a los usuarios registrar sus gastos y generar reportes diarios, semanales y mensuales y generar reportes. El sistema también ofrece la opción de visualizar estos reportes en pantalla o guardarlos en un archivo JSON.
+Este proyecto es una aplicación desarrollada en Python que permite a los usuarios gestionar sus gastos de forma sencilla. Las funcionalidades principales incluyen:
+
+Registrar nuevos gastos con categoría, descripción y fecha.
+
+Listar todos los gastos, con opciones para filtrar por categoría o rango de fechas.
+
+Calcular el total de gastos por día, semana o mes.
+
+Visualizar cuánto se ha gastado por cada categoría.
+
+Generar reportes de gastos diarios, semanales y mensuales, incluyendo el total por categoría.
+
+Elegir entre visualizar los reportes en pantalla o guardarlos en un archivo JSON.
 
 ## 📑 Tabla de Contenidos
 
@@ -21,7 +33,7 @@ python3 main.py
 - **Registro de nuevos gastos** con fecha, categoría y monto.
 - **Listado de gastos** por categoría o por rango de fechas.
 - **Cálculo del total de gastos** diario, semanal y mensual.
-- **Generación de reportes** en formato JSON.
+- **Generación de reportes** en formato JSON o por pantalla.
 
 
 ## 📂 Estructura del Proyecto
